@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    # 用户模块
     'users.apps.UsersConfig',
+    # 验证码
+    'verifications.apps.VerificationsConfig',
 
 
 ]
@@ -145,7 +148,16 @@ CACHES = {
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
-    }
+    },
+    # 新增存储图片验证码d
+    "verify_codes": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://10.211.55.5:6379/2",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+
 }
 # 将session信息存储到缓存中
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
@@ -192,7 +204,7 @@ LOGGING = {
         },
     }
 }
-
+# 处理异常
 REST_FRAMEWORK = {
     # 异常处理
     'EXCEPTION_HANDLER': 'meiduo_mall.utils.exceptions.exception_handler',
