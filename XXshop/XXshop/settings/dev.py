@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    # 处理跨域请求
+    'corsheaders',
     # 用户模块
     'users.apps.UsersConfig',
     # 验证码
@@ -50,6 +52,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # 跨域请求中间件
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -207,3 +211,12 @@ REST_FRAMEWORK = {
 
 # 指定生成的用户模型类为user模块下的User类(这里不用指定models文件)
 AUTH_USER_MODEL = 'users.User'
+
+# CORS跨域白名单
+CORS_ORIGIN_WHITELIST = (
+    '127.0.0.1:8080',
+    'localhost:8080',
+    'www.xxshop.com:8080',
+)
+# 允许携带cookie
+CORS_ALLOW_CREDENTIALS = True  # 允许携带cookie
