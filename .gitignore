@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+
+/home/python/Desktop/fuxi/Text_XXShop/XXshop/logs/*
+/home/python/Desktop/fuxi/Text_XXShop/XXshop/docs/*
