@@ -3029,7 +3029,7 @@ function callUpdatedHooks (queue) {
  * The queue will be processed after the entire tree has been patched.
  */
 function queueActivatedComponent (vm) {
-  // settings _inactive to false here so that a render function can
+  // setting _inactive to false here so that a render function can
   // rely on checking whether it's in an inactive tree (e.g. router-view)
   vm._inactive = false;
   activatedChildren.push(vm);
@@ -4066,7 +4066,7 @@ function createFunctionalComponent (
 }
 
 function cloneAndMarkFunctionalResult (vnode, data, contextVm, options) {
-  // #7817 clone node before settings fnContext, otherwise if the node is reused
+  // #7817 clone node before setting fnContext, otherwise if the node is reused
   // (e.g. it was from a cached normal slot) the fnContext causes named slots
   // that should not be matched to match.
   var clone = cloneVNode(vnode);
@@ -6315,8 +6315,8 @@ function updateAttrs (oldVnode, vnode) {
       setAttr(elm, key, cur);
     }
   }
-  // #4391: in IE9, settings type can reset value for input[type=radio]
-  // #6666: IE/Edge forces progress value down to 1 before settings a max
+  // #4391: in IE9, setting type can reset value for input[type=radio]
+  // #6666: IE/Edge forces progress value down to 1 before setting a max
   /* istanbul ignore if */
   if ((isIE || isEdge) && attrs.value !== oldAttrs.value) {
     setAttr(elm, 'value', attrs.value);
@@ -6365,7 +6365,7 @@ function baseSetAttr (el, key, value) {
   if (isFalsyAttrValue(value)) {
     el.removeAttribute(key);
   } else {
-    // #7138: IE10 & 11 fires input event when settings placeholder on
+    // #7138: IE10 & 11 fires input event when setting placeholder on
     // <textarea>... block the first input event and remove the blocker
     // immediately.
     /* istanbul ignore if */
@@ -6863,7 +6863,7 @@ function model (
   var type = el.attrsMap.type;
 
   {
-    // inputs with type="file" are read only and settings the input's
+    // inputs with type="file" are read only and setting the input's
     // value will throw an error.
     if (tag === 'input' && type === 'file') {
       warn$1(
@@ -7341,7 +7341,7 @@ function updateStyle (oldVnode, vnode) {
   for (name in newStyle) {
     cur = newStyle[name];
     if (cur !== oldStyle[name]) {
-      // ie9 settings to null has no effect, must use empty string
+      // ie9 setting to null has no effect, must use empty string
       setProp(el, name, cur == null ? '' : cur);
     }
   }
